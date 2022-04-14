@@ -1,0 +1,49 @@
+<div class="main-container">
+
+  <div class="container-tittle">
+    <h1><b>Join us!</b></h1>
+    <ul class="description">
+      <li>Select yout class.</li>
+      <li>Choose your nickname.</li>
+      <li>Prepare for your journey!</li>
+    </ul>
+  </div>
+
+
+  <div class="container-form">
+
+    <div class="form">
+
+      <form action="/home" method="POST">
+        <div class="input-name">
+          <input type="text" class="form-control" name="name" placeholder="Enter your nickname" required autofocus />
+        </div>
+
+        <div class="input-professions">
+          <label><input name="profession" value="Warrior" type="radio" class="input-radio" checked />Warrior</label>
+          <label><input name="profession" value="Wizard" type="radio" class="input-radio" />Wizard</label>
+          <label><input name="profession" value="Rogue" type="radio" class="input-radio" />Rogue</label>
+        </div>
+
+        <div class="input-password">
+          <input type="password" name="password" placeholder="password" required />
+        </div>
+
+        <div class="input-submit">
+          <button type="submit" id="submit" class="submit-button">Submit</button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="container-info">
+  <div class="info">
+    <p> {{ jugadores }} players have joined the adventure.</p>
+    <p> <a href="/list"> Look at them! </a> </p>
+  </div>
+</div>
