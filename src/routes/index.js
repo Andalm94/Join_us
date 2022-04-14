@@ -4,17 +4,17 @@ const router = express.Router();
 
 const pool = require('../database');
 
-// SELECT COUNT(*) FROM users
 
 
-router.get('/home', async (req, res) => {
+
+router.get('/', async (req, res) => {
     const count = await pool.query('SELECT COUNT(*) FROM users');
     var jugadores = Object.values(count[0]);
     
     res.render('home', {jugadores});
 });
 
-router.post('/home', async (req, res)=>{
+router.post('/', async (req, res)=>{
     const { name , profession, password } = req.body;
     const newUser = {
         name,
@@ -28,3 +28,4 @@ router.post('/home', async (req, res)=>{
 });
 
 module.exports = router;
+
