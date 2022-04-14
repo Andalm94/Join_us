@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build",
+    "build": "babel src -d lib",
     "dev": "nodemon src/index.js"
   },
   "keywords": [],
@@ -29,6 +29,8 @@
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
     "nodemon": "^2.0.15",
     "snowpack": "^3.8.8"
   }
