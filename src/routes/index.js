@@ -23,7 +23,6 @@ router.post('/', async (req, res)=>{
     };
     console.log(newUser);
     await pool.query('INSERT INTO users set ?', [newUser]);
-    req.flash('success', 'New character');
     res.redirect('/');
 });
 
