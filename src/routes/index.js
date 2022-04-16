@@ -2,7 +2,7 @@ const { response, request } = require('express');
 const express = require('express');
 const router = express.Router();
 
-const dangerRegex = /[{<!'¡¿?"#$%&()>}]+/;
+const dangerRegex = /[{<!'¡¿?"#$*+-/=%&()>}]+/;
 
 const pool = require('../database');
 
@@ -24,14 +24,14 @@ router.post('/', async (req, res)=>{
         password
     };
 
-    if(dangerRegex.test(newUser.name) == true){
-        console.log(newUser);
-        console.log("DANGER REGEX DETECTED IN " + newUser.name);
+    if(dangerRegex.test(newUser.name) == true || newUser.name.length >20){
+        console.log("NOT PASS LENGTH: " + newUser.name.length);
+        console.log("PASSED: " + newUser);
         res.redirect('/');
     }
     else{
         res.redirect('/');
-        console.log("SAFE INPUT: " + newUser.name);
+        console.log("DISAPPROVED: " + newUser);
         await pool.query('INSERT INTO users set ?', [newUser]);
     }
 });
