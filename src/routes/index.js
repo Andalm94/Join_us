@@ -2,6 +2,8 @@ const { response, request } = require('express');
 const express = require('express');
 const router = express.Router();
 
+const dangerRegex = /[{<!'¡¿?"#$%&()>}]+/;
+
 const pool = require('../database');
 
 
@@ -21,10 +23,20 @@ router.post('/', async (req, res)=>{
         profession,
         password
     };
-    console.log(newUser);
-    await pool.query('INSERT INTO users set ?', [newUser]);
-    res.redirect('/');
+
+    if(dangerRegex.test(newUser.name) == true){
+        console.log(newUser);
+        console.log("DANGER REGEX DETECTED IN " + newUser.name);
+        res.redirect('/');
+    }
+    else{
+        res.redirect('/');
+        console.log("SAFE INPUT: " + newUser.name);
+        await pool.query('INSERT INTO users set ?', [newUser]);
+    }
 });
+
+
 
 module.exports = router;
 

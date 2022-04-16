@@ -14,9 +14,9 @@
 
     <div class="form">
 
-      <form action="/" method="POST">
+      <form action="/" method="POST" id="form">
         <div class="input-name">
-          <input type="text" class="form-control" name="name" placeholder="Enter your nickname" required autofocus />
+          <input type="text" class="form-control" name="name" maxlength="20" pattern="[A-Za-z0-9]+" placeholder="Enter your nickname" required autofocus />
         </div>
 
         <div class="input-professions">
