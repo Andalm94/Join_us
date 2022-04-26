@@ -6,4 +6,4 @@
 - src: folder with all the Backend and Frontend code.
 
 ## Link
-- To see the application and add entries you can enter the following link: https://joinusproject.herokuapp.com/
+- To see the application and add entries you can visit the following link: https://joinusproject.herokuapp.com/
