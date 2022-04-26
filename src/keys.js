@@ -1,4 +1,7 @@
 var mysql = require('mysql');
+const crypto = require('crypto');
+
+
 
 module.exports = {
 
@@ -11,3 +14,4 @@ module.exports = {
     }
 
 };
+

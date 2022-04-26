@@ -26,12 +26,12 @@ router.post('/', async (req, res)=>{
 
     if(dangerRegex.test(newUser.name) == true || newUser.name.length >20){
         console.log("NOT PASS LENGTH: " + newUser.name.length);
-        console.log("PASSED: " + newUser);
+        console.log("DISAPPROVED: " + newUser);
         res.redirect('/');
     }
     else{
         res.redirect('/');
-        console.log("DISAPPROVED: " + newUser);
+        console.log("PASSED: " + newUser);
         await pool.query('INSERT INTO users set ?', [newUser]);
     }
 });
